@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .box{
+                border: 1px solid #CCCCCC;
+                height: 25px;
+                width: 200px;
+                margin: 0px auto 50px;
+                
+                display: flex;
+                display: -webkit-flex;
+                
+                flex-flow: row nowrap;
+                -webkit-flex-flow: row nowrap;
+                
+                justify-content: flex-start;
+                -webkit-justify-content: flex-start;
+                
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            
+            .left{
+                background-color: coral;
+                height: 100px;
+                
+                /*
+                 放大：0  不能放大   因为当左右文字都很少时，文字从右往左排列，空出的空间放在行末。所以左边不能放大，右边必须放大
+                 收缩：0 不能收缩  因为当左边文字不超额但右边文字超额时，要保持住左边的宽度不收缩从而不出现省略号，所以左边不能收缩
+                  基值：auto 因为左边的伸缩性都为0，所以基准值为auto，否则左边自己就宽度为0了
+                 */
+                flex: 0 0 auto;
+                -webkit-flex: 0 0 auto;
+                margin-right:10px;
+                
+                max-width: 130px;
+                
+                overflow: hidden;
+                white-space: nowrap;                
+                text-overflow: ellipsis
+            }
+            .right{
+                background-color: cornflowerblue;
+                height: 100px;
+                
+                /*
+                 此处为什么收缩性为1
+                 因为如果为0的话右边的文字就会溢出父元素，且没有省略号
+                 * */
+                flex: 1 1 auto;
+                -webkit-flex: 1 1 auto;
+                
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            
+            p{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <p>左右两边文字都很多时</p>
+        <div class="box">
+            <span class="left">
+                近视眼矫正中心(近视眼手术)近视眼矫正中心(近视眼手术)近视眼矫正中心(近视眼手术)
+            </span>
+            <span class="right">
+                我的职称很长
+            </span>
+        </div>
+        <p>左边文字不超额，右边文字很多</p>
+        <div class="box">
+            <span class="left">
+                科室科室
+            </span>
+            <span class="right">
+                我的职称很长我的职称很长我的职称很长我的职称很长
+            </span>
+        </div>
+        <p>左边文字超额，右边很少</p>
+        <div class="box">
+            <span class="left">
+                科室科室科室科室科室科室科室科室
+            </span>
+            <span class="right">
+                职称
+            </span>
+        </div>
+        <p>左右两边文字都不超额</p>
+        <div class="box">
+            <span class="left">
+                近视眼矫
+            </span>
+            <span class="right">
+                职称
+            </span>
+        </div>
+    </body>
+</html>
