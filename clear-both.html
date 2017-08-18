@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clear:both清浮动</title>
+</head>
+<style>
+    .container{
+        background-color: #39baff;
+        width: 500px;
+        padding:10px;
+
+    }
+    .left{
+        float: left;
+        width: 100px;
+        height: 200px;
+        background-color: #f4f4f4;
+    }
+    .right{
+        float: right;
+        width: 100px;
+        height: 200px;
+        background-color: #f4f4f4;
+    }
+    .container:after{
+        content: "";
+        clear: both;
+        display: block;
+        height: 0;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
