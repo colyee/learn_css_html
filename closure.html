@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<style>
+     li{
+         list-style: none;
+         border-bottom: 1px solid #e7e3e3;
+         width: 100px;
+         height: 40px;
+         line-height: 40px;
+         background-color: #f4f4f4;
+         text-align: center;
+     }
+</style>
+<body>
+    <h1>方法1</h1>
+    <ul id="ul1">
+        <li>click 1</li>
+        <li>click 2</li>
+        <li>click 3</li>
+        <li>click 4</li>
+    </ul>
+
+    <h1>方法2</h1>
+    <ul id="ul2">
+        <li>click 1</li>
+        <li>click 2</li>
+        <li>click 3</li>
+        <li>click 4</li>
+    </ul>
+</body>
+<script type="text/javascript">
+    var ul1 =document.getElementById("ul1");
+    var li1=ul1.querySelectorAll("li");
+    //方法1
+    for (var i=0;i<li1.length;i++){
+        (function(i){
+            li1[i].onclick=function(){
+                alert("click:"+i);
+            }
+        })(i);
+    }
+    var ul2 =document.getElementById("ul2");
+    var li2=ul2.querySelectorAll("li");
+    //方法2
+    for (let j=0;j<li2.length;j++){
+        li2[j].onclick=function(){
+            alert("点击:"+j);
+        }
+    }
+</script>
+</html>
