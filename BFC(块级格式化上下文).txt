@@ -1,0 +1,15 @@
+BFC:Block Formatting Context（块级格式化上下文）
+BFC有什么用:
+
+	1、BFC可以阻止垂直边距叠加问题
+
+	2、BFC可以包含内部元素的浮动
+
+	3、BFC可以阻止元素被浮动覆盖
+
+	4、BFC可以决定清除浮动的范围
+怎么开启BFC:
+	float的值不为”none”
+	overflow的值不为”visible”
+	display的值为 “table-cell”, “table-caption”, or “inline-block”中的任何一个
+	position的值不为 “static” 或 “relative”中的任何一个
